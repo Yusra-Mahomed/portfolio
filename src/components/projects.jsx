@@ -2,6 +2,7 @@ import { useState } from "react";
 
 export default function Projects() {
   const [openIndex, setOpenIndex] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const projects = [
     {
@@ -19,6 +20,8 @@ export default function Projects() {
       ],
       github: "https://github.com/nick-maiden/connectedhealth",
       demo: "https://www.youtube.com/watch?feature=shared&v=xt1urYFAc0A",
+      demoLabel: "Quick Video",
+      image: "/images/connected-health.png",
     },
     {
       title: "Data Processing & Inference App",
@@ -34,7 +37,10 @@ export default function Projects() {
       ],
       github: "https://github.com/Yusra-Mahomed/data-processing",
       demo: "https://data-processing.onrender.com/",
+      demoLabel: "Live (may take ~30s)",
       video: "https://www.youtube.com/watch?v=P_3wli_7Az4",
+      videoLabel: "Demo",
+      image: "/images/data-processing.png",
     },
     {
       title: "Cheesecake E-Invoicing Software",
@@ -50,6 +56,8 @@ export default function Projects() {
         "Implemented CI/CD pipeline for automated testing and deployment."
       ],
       demo: "https://www.youtube.com/watch?v=rH7oPRoIitk",
+      demoLabel: "Demo (by a teammate)",
+      image: "/images/invoice.jpg",
     },
     {
       title: "Disease Trend Analysis Platform",
@@ -64,6 +72,7 @@ export default function Projects() {
         "Used Amazon S3 for cloud-based data storage.",
         "Established CI/CD pipeline for testing and deployment."
       ],
+      image: "/images/disease.jpg",
     },
     {
       title: "Educational Digital Privacy Toolkit",
@@ -85,10 +94,13 @@ export default function Projects() {
         "Designed privacy-first architecture ensuring no sensitive user data is stored.",
         "Developed React + Vite frontend for interactive educational visualisations."
       ],
-      github: "https://github.com/Yusra-Mahomed/digital-privacy-toolkit"
+      github: "https://github.com/Yusra-Mahomed/digital-privacy-toolkit",
+      demo: "https://youtu.be/j9xZoCSZHZ8",
+      demoLabel: "Demo",
+      image: "/images/security.png",
     },
     {
-      title: "AirBrB — Airbnb-Style Booking Platform (React SPA)",
+      title: "AirBrB: Airbnb-Style Booking Platform (React SPA)",
       subtitle: "Coursework · Team of 2 · Frontend Developer",
       description:
         "React single-page application replicating core Airbnb functionality, including authentication, listings management, advanced search filters, booking workflows, and review systems.",
@@ -110,108 +122,156 @@ export default function Projects() {
         "Wrote component and end-to-end UI tests using Jest and Cypress.",
         "Deployed production build to Vercel."
       ],
-      github: "https://github.com/Yusra-Mahomed/airbrb-deploy"
+      github: "https://github.com/Yusra-Mahomed/airbrb-deploy",
+      image: "/images/airbrb.jpg",
     }
   ];
 
+  {selectedImage && (
+    <div
+      className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-6"
+      onClick={() => setSelectedImage(null)}
+    >
+      <img
+        src={selectedImage}
+        alt="Expanded project"
+        className="max-h-[90vh] max-w-[90vw] rounded-xl shadow-2xl"
+      />
+    </div>
+  )}
+
   return (
-    <section id="projects" className="py-20 px-6 bg-slate-950">
-      <h2 className="text-4xl font-bold text-center mb-16 text-blue-400">
-        Projects
-      </h2>
+    <>
+      {/* IMAGE MODAL */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-6"
+          onClick={() => setSelectedImage(null)}
+        >
+          <img
+            src={selectedImage}
+            alt="Expanded project"
+            className="max-h-[90vh] max-w-[90vw] rounded-xl shadow-2xl"
+          />
+        </div>
+      )}
 
-      <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project, index) => {
-          const isOpen = openIndex === index;
+      <section id="projects" className="py-20 px-6 bg-slate-950">
+        <h2 className="text-4xl font-bold text-center mb-16 text-blue-400">
+          Projects
+        </h2>
 
-          return (
-            <div
-              key={index}
-              className="bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-xl hover:-translate-y-2 transition duration-300"
-            >
-              <h3 className="text-xl font-semibold text-white">
-                {project.title}
-              </h3>
+        <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => {
+            const isOpen = openIndex === index;
 
-              <p className="text-sm text-slate-400 mt-1">
-                {project.subtitle}
-              </p>
-
-              <p className="text-slate-400 text-sm mt-4 leading-relaxed">
-                {project.description}
-              </p>
-
-              {/* Links — ALWAYS Visible */}
-              <div className="flex flex-wrap gap-6 mt-4 text-sm">
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-400 hover:underline"
-                  >
-                    GitHub
-                  </a>
-                )}
-                {project.demo && (
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-400 hover:underline"
-                  >
-                    Video Demo
-                  </a>
-                )}
-                {project.video && (
-                  <a
-                    href={project.video}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-400 hover:underline"
-                  >
-                    Video
-                  </a>
-                )}
-              </div>
-
-              {/* Tech Stack */}
-              <div className="flex flex-wrap gap-2 mt-4">
-                {project.tech.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="px-3 py-1 text-xs bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              {/* Toggle Button */}
-              <button
-                onClick={() => setOpenIndex(isOpen ? null : index)}
-                className="mt-6 text-blue-400 text-sm hover:underline"
+            return (
+              <div
+                key={index}
+                className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl hover:-translate-y-2 transition duration-300"
               >
-                {isOpen ? "Hide Details ↑" : "View Details ↓"}
-              </button>
+                {/* IMAGE HEADER */}
+                {project.image && (
+                  <div
+                    className="h-28 w-full overflow-hidden cursor-pointer opacity-80"
+                    onClick={() => setSelectedImage(project.image)}
+                  >
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover object-[center_50%] hover:scale-105 transition duration-500 rounded-t-2xl"
+                    />
+                  </div>
+                )}
 
-              {/* Dropdown Content */}
-              {isOpen && (
-                <div className="mt-4 border-t border-slate-800 pt-4">
-                  <ul className="space-y-2 text-slate-400 text-sm">
-                    {project.details.map((item, i) => (
-                      <li key={i} className="flex gap-2">
-                        <span className="text-blue-400">▹</span>
-                        {item}
-                      </li>
+                {/* CARD CONTENT */}
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold text-white">
+                    {project.title}
+                  </h3>
+
+                  <p className="text-xs text-slate-400 mt-1">
+                    {project.subtitle}
+                  </p>
+
+                  <p className="text-slate-400 text-sm mt-4 leading-relaxed">
+                    {project.description}
+                  </p>
+
+                  {/* LINKS */}
+                  <div className="flex flex-wrap gap-6 mt-4 text-xs">
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-400 hover:underline"
+                      >
+                        GitHub
+                      </a>
+                    )}
+
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-400 hover:underline"
+                      >
+                        {project.demoLabel || "Live Demo"}
+                      </a>
+                    )}
+
+                    {project.video && (
+                      <a
+                        href={project.video}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-400 hover:underline"
+                      >
+                        {project.videoLabel || "Video"}
+                      </a>
+                    )}
+                  </div>
+
+                  {/* TECH STACK */}
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {project.tech.map((tech, i) => (
+                      <span
+                        key={i}
+                        className="px-3 py-1 text-xs bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20"
+                      >
+                        {tech}
+                      </span>
                     ))}
-                  </ul>
+                  </div>
+
+                  {/* DETAILS TOGGLE */}
+                  <button
+                    onClick={() => setOpenIndex(isOpen ? null : index)}
+                    className="mt-6 text-blue-400 text-sm hover:underline"
+                  >
+                    {isOpen ? "Hide Details ↑" : "View Details ↓"}
+                  </button>
+
+                  {isOpen && (
+                    <div className="mt-4 border-t border-slate-800 pt-4">
+                      <ul className="space-y-2 text-slate-400 text-sm">
+                        {project.details.map((item, i) => (
+                          <li key={i} className="flex gap-2">
+                            <span className="text-blue-400">▹</span>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
-    </section>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    </>
   );
 }
