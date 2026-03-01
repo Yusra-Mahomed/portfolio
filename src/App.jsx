@@ -4,7 +4,7 @@ import About from "./components/About"
 import Education from "./components/Education"
 import Skills from "./components/Skills"
 import Experience from "./components/Experience"
-import Projects from "./components/Projects"
+import Projects from "./components/projects"
 import Extracurriculars from "./components/Extracurriculars"
 import Contact from "./components/Contact"
 
