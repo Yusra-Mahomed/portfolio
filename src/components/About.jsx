@@ -53,7 +53,7 @@ export default function About() {
         (including LLM-driven RAG systems), and modern React-based frontend
         architectures.
         <br /><br />
-        I enjoy designing systems end to end, from backend services and data pipelines to clean, user focused interfaces, and I am driven by solving complex technical problems with practical and reliable solutions.
+        I enjoy designing systems end to end, from backend services and data pipelines to clean, user focused interfaces, and collaborating across teams to deliver practical, reliable solutions to complex problems.
       </p>
     </section>
   )

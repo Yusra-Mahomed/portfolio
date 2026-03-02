@@ -9,9 +9,7 @@ export default function Hero() {
       </h1>
 
       <p className="text-slate-400 max-w-2xl mb-8 leading-relaxed">
-        Final-year Software Engineering (Honours) student at UNSW with
-        industry experience building production-ready software systems
-        across industrial tooling, cloud platforms, and full-stack applications.
+        Curious problem solver passionate about building practical solutions that create real-world impact.
       </p>
 
       <div className="flex flex-wrap justify-center gap-4">
@@ -30,14 +28,14 @@ export default function Hero() {
         </a>
       </div>
 
-      <a
+      {/* <a
         href="/Yusra_Mahomed_Resume.pdf"
         target="_blank"
         rel="noopener noreferrer"
         className="mt-6 text-sm text-slate-400 hover:text-blue-400 transition"
       >
         Download Resume →
-      </a>
+      </a> */}
     </section>
   )
 }
