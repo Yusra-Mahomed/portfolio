@@ -110,13 +110,13 @@ export default function Education() {
           {/* Stats */}
           <div className="flex flex-wrap gap-4 mt-4">
             <span className="text-sm text-slate-300">
-              WAM: <span className="text-blue-400">84.310</span>
+              WAM: <span className="text-blue-400">85</span>
             </span>
             <span className="text-sm text-slate-300">
               Dean’s List 2022
             </span>
             <span className="text-sm text-slate-300">
-              Honours Thesis (High Distinction: <span className="text-blue-400">92</span>)
+              Honours Thesis (High Distinction: <span className="text-blue-400">94</span>)
             </span>
           </div>
 
@@ -126,6 +126,13 @@ export default function Education() {
               Using AI to Build a Topic-Based Question Bank for Adaptable Study Resource Curation
             </span>
           </p>
+
+          <ul className="mt-2 text-slate-300 text-sm list-disc list-inside">
+            <li>
+              Designed and evaluated an AI-powered topic classification and question generation
+              system using a retrieval-augmented generation (RAG) pipeline.
+            </li>
+          </ul>
         </div>
       </div>
     </section>

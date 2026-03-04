@@ -6,7 +6,7 @@ export default function Contact() {
       </h2>
 
       <p className="text-slate-400 max-w-xl mx-auto mb-10 leading-relaxed">
-        I'm currently open to graduate and early-career software engineering
+        I'm currently open to graduate and early-career
         opportunities. If you'd like to connect, feel free to reach out.
       </p>
 

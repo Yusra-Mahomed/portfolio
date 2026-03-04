@@ -9,7 +9,7 @@ export default function Hero() {
       </h1>
 
       <p className="text-slate-400 max-w-2xl mb-8 leading-relaxed">
-        Curious problem solver passionate about building practical solutions that create real-world impact.
+        I'm a curious problem solver passionate about building practical solutions with real-world impact.
       </p>
 
       <div className="flex flex-wrap justify-center gap-4">
