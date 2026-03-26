@@ -40,30 +40,52 @@ export default function Skills() {
   }
 
   return (
-    <section id="skills" className="py-20 px-6 bg-slate-950">
-      <h2 className="text-3xl font-bold text-center mb-12 text-blue-400">
-        Technical Skills
-      </h2>
+    <section id="skills" className="py-32 bg-slate-950 text-white">
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
 
-      <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {Object.entries(skillCategories).map(([category, skills]) => (
-          <div key={category}>
-            <h3 className="text-sm font-semibold text-blue-400 uppercase tracking-wider mb-3">
-              {category}
-            </h3>
+        {/* Heading */}
+        <div className="mb-20">
+          <p className="text-blue-400 uppercase tracking-widest text-sm mb-3">
+            Skills
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold">
+            Tools & technologies I use
+          </h2>
+        </div>
 
-            <div className="flex flex-wrap gap-2">
-              {skills.map(skill => (
-                <span
-                  key={skill}
-                  className="bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-xs"
-                >
-                  {skill}
-                </span>
-              ))}
+        {/* Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          {Object.entries(skillCategories).map(([category, skills]) => (
+            <div
+              key={category}
+              className="border border-white/10 rounded-2xl p-6 
+              hover:border-blue-400/30 transition"
+            >
+
+              {/* Category */}
+              <h3 className="text-sm font-semibold text-blue-400 uppercase tracking-wider mb-4">
+                {category}
+              </h3>
+
+              {/* Skills */}
+              <div className="flex flex-wrap gap-2">
+                {skills.map(skill => (
+                  <span
+                    key={skill}
+                    className="text-xs text-slate-300 px-3 py-1 rounded-md 
+                    border border-white/10 bg-white/5
+                    hover:border-blue-400/40 hover:text-white transition"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+
             </div>
-          </div>
-        ))}
+          ))}
+
+        </div>
       </div>
     </section>
   )

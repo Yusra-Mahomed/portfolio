@@ -30,41 +30,56 @@ export default function Extracurriculars() {
       description:
         "Developed a client-facing dashboard proposal using Tableau and Excel to derive business insights."
     }
-  ];
+  ]
 
   return (
-    <section id="extracurriculars" className="py-20 px-6 bg-slate-900">
-      <h2 className="text-3xl font-bold text-center mb-12 text-blue-400">
-        Extracurriculars
-      </h2>
+    <section id="extracurriculars" className="py-24 bg-slate-950 text-white">
+      <div className="max-w-4xl mx-auto px-6 md:px-12">
 
-      <div className="max-w-6xl mx-auto overflow-x-auto">
-        <div className="flex gap-12 min-w-max relative pb-6">
+        {/* Heading */}
+        <div className="mb-12">
+          <p className="text-blue-400 uppercase tracking-widest text-xs mb-2">
+            Extracurriculars
+          </p>
+          <h2 className="text-3xl md:text-4xl font-semibold">
+            Beyond engineering
+          </h2>
+        </div>
 
-          {/* Timeline Line */}
-          <div className="absolute top-4 left-0 right-0 h-[2px] bg-slate-700"></div>
+        {/* Timeline */}
+        <div className="relative">
 
-          {items.map((item, index) => (
-            <div key={index} className="relative w-80">
+          {/* vertical line */}
+          <div className="absolute left-2 top-0 bottom-0 w-[2px] bg-slate-800"></div>
 
-              {/* Dot */}
-              <div className="w-4 h-4 bg-blue-400 rounded-full relative z-10 mb-6"></div>
+          <div className="space-y-8">
+            {items.map((item, index) => (
+              <div key={index} className="relative pl-8">
 
-              <h3 className="text-white font-semibold text-lg">
-                {item.title}
-              </h3>
+                {/* dot */}
+                <div className="absolute left-0 top-2 w-4 h-4 rounded-full bg-blue-400"></div>
 
-              <p className="text-xs text-blue-400 mt-1">
-                {item.subtitle}
-              </p>
+                {/* content */}
+                <div>
+                  <h3 className="text-sm font-semibold">
+                    {item.title}
+                  </h3>
 
-              <p className="text-slate-400 text-sm mt-3 leading-relaxed">
-                {item.description}
-              </p>
-            </div>
-          ))}
+                  <p className="text-xs text-blue-400 mt-1">
+                    {item.subtitle}
+                  </p>
+
+                  <p className="text-slate-400 text-sm mt-2 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+
+              </div>
+            ))}
+          </div>
+
         </div>
       </div>
     </section>
-  );
+  )
 }
